@@ -1,0 +1,193 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Aim</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #1a1a1a;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #ff7eb3, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(to right, #ff7eb3, #8e44ad);
+        }
+        .glow {
+            box-shadow: 0 0 10px #8e44ad;
+        }
+        .background-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            opacity: 0.1;
+            z-index: -1;
+        }
+        .container {
+            text-align: center;
+            color: white;
+        }
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .subtitle {
+            font-size: 1.125rem;
+            margin-top: 0.5rem;
+        }
+        .id-text {
+            margin-top: 1rem;
+        }
+        .settings-container {
+            margin-top: 1.5rem;
+            background-color: #2d2d2d;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .setting-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        .setting-item:last-child {
+            margin-bottom: 0;
+        }
+        .button {
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+        .success-message {
+            margin-top: 1rem;
+            color: #38a169;
+            display: none;
+        }
+        .footer {
+            margin-top: 1.5rem;
+            font-size: 0.875rem;
+            color: #a0aec0;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 34px;
+            height: 20px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(14px);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-effect"></div>
+    <div class="container">
+        <h1 class="title gradient-text">SETTINGS AIM</h1>
+        <p class="subtitle">Version 1.0</p>
+        <p class="id-text"></p>
+        <div class="settings-container">
+            <div class="setting-item">
+                <span>Smooth Screen</span>
+                <label class="switch">
+                    <input type="checkbox" class="toggle-checkbox">
+                    <span class="slider round gradient-bg"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <span>Stable Fps</span>
+                <label class="switch">
+                    <input type="checkbox" class="toggle-checkbox">
+                    <span class="slider round gradient-bg"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <span>Touch Responsive</span>
+                <label class="switch">
+                    <input type="checkbox" class="toggle-checkbox">
+                    <span class="slider round gradient-bg"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <span>Headtracking Adjust</span>
+                <label class="switch">
+                    <input type="checkbox" class="toggle-checkbox">
+                    <span class="slider round gradient-bg"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <span>Tweaking FreeFire</span>
+                <label class="switch">
+                    <input type="checkbox" class="toggle-checkbox">
+                    <span class="slider round gradient-bg"></span>
+                </label>
+            </div>
+            <button id="saveSettingsButton" class="button gradient-bg">Save Settings</button>
+            <p id="successMessage" class="success-message">Success Saving</p>
+        </div>
+        <p class="footer">© 2025 XemzzXiterz | ZianzyXty</p>
+    </div>
+    <script>
+        document.getElementById('saveSettingsButton').addEventListener('click', function() {
+            document.getElementById('successMessage').style.display = 'block';
+        });
+
+        document.querySelectorAll('.toggle-checkbox').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    this.nextElementSibling.classList.add('glow');
+                } else {
+                    this.nextElementSibling.classList.remove('glow');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
